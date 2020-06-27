@@ -20,9 +20,9 @@ function App() {
    //console.log('CHARACTERS IN APP' ,characters);
 
    return (
-      <div>
+      <div className="App">
          <Header />
-         <List />
+         <List starwarschars={characters}/>
       </div>
    );
 
