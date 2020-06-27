@@ -5,12 +5,10 @@ import styled from 'styled-components';
 
 function Card( {starcard}){
 
-   //console.log("CARD-->", starcard ? starcard : "loading")
-
-   //FILMS IS AN ARRAY OF URLS - NEED TO SET STATE TO MAP OVER DATA
+   //FILMS IS AN ARRAY OF URLS TO MAKE REQUESTS ON - NEED TO SET STATE TO MAP OVER DATA
    const [films, setFilms] = useState();
 
-   
+   //MAKE SEPARATE API REQUESTS FROM AN ARRAY OF HTTP REQUESTS
    useEffect( ()=>{
       axios.all( starcard.films.map( (film) => axios.get(film) ) )
       .then(axios.spread( function(...response) {
@@ -20,35 +18,35 @@ function Card( {starcard}){
       .catch( (error) => console.log(error))
    },[starcard])  
 
-   //console.log( 'AXIOS ALL IS :', films ? films : "");
-   //console.log("FILMS DATA:  ",films ? films[0]['data']['title'] : "")
-
-
+  
    return (
       <CharacterCard>
          <Name>{starcard ? <p>{starcard.name}</p> : <span></span>}</Name>
          <LineBreak></LineBreak>
+        
          <CharText>
             <Bold>Born: </Bold>
             {starcard ? <span>{starcard.birth_year}</span> : <span></span>}
          </CharText>
+        
          <CharText>
             <Bold>Gender: </Bold>
-            {starcard ? <span>{starcard.gender}</span> : <span></span>}</CharText>
+            {starcard ? <span>{starcard.gender}</span> : <span></span>}
+         </CharText>
+        
          <CharText>
             <Bold>Appeared In: </Bold>
-               { films ? 
-                  films.map( i => <Films>{ i.data.title}</Films> ) :
-                  <span>LOADING...</span>
-                }     
+            {films ? 
+               films.map( i => <Films>{ i.data.title}</Films> ) :
+               <span>LOADING...</span>
+               }     
           </CharText>     
       </CharacterCard>
    ) 
 
 }
 
-export default Card;
-
+// STYLES=======================================
 const CharacterCard = styled.div`
    box-shadow: 3px 3px 10px black;
    border-radius: 5px;
@@ -77,3 +75,6 @@ height: 2px;
 background-color: black;
 border: none;
 `;
+// STYLES=======================================
+
+export default Card;

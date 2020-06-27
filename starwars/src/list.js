@@ -2,9 +2,7 @@ import React from 'react';
 import Card from './card';
 import styled from 'styled-components';
 
-function List ( { starwarschars}) {
-
-   //console.log("IN LIST: ", starwarschars ? starwarschars[0]['name'] : "waiting");
+function List ( { starwarschars }) {
 
    return (
       <CardContainer>
@@ -16,8 +14,7 @@ function List ( { starwarschars}) {
    )
 }
 
-export default List;
-
+// STYLES=======================================
 const CardContainer = styled.div`
    display: flex;
    flex-wrap: wrap;
@@ -29,3 +26,7 @@ const CardContainer = styled.div`
       align-items: center;
    }
 `;
+// STYLES=======================================
+
+
+export default List;

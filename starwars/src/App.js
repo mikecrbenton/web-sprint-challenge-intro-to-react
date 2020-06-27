@@ -26,7 +26,6 @@ function App() {
    useEffect( () => {
       axios.get(`https://swapi.dev/api/people/?page=${link}`)
          .then( (response) => {  
-               //console.log('RESPONSE ', response.data)    
                setCharacters(response.data.results)       
          })
          .catch( e => console.log("ERROR = ", e));
@@ -41,10 +40,11 @@ function App() {
 
    }, [link]);
 
+   // CAN ONLY ONE EVENT LISTENER BE IN A USEFFECT - I NEEDED TO CREATE THIS
+   // SECOND INSTANCE FOR MY BUTTONS TO WORK
    useEffect( () => {
       axios.get(`https://swapi.dev/api/people/?page=${link}`)
-         .then( (response) => {  
-               //console.log('RESPONSE ', response.data)    
+         .then( (response) => {      
                setCharacters(response.data.results)       
          })
          .catch( e => console.log("ERROR = ", e));
@@ -59,9 +59,6 @@ function App() {
 
    }, [link]);
 
-
-   console.log('CHARACTERS IN APP' ,characters);
-
    return (
       <div className="App">
          <Header />
@@ -70,12 +67,13 @@ function App() {
          </div>
       </div>
    );
-
-
 }
 
+// STYLES=======================================
 const ButtonDiv = styled.div`
    margin-top: 20px;
 `;
+// STYLES=======================================
+
 
 export default App;
