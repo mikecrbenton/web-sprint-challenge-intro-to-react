@@ -17,7 +17,7 @@ function App() {
          .catch( e => console.log("ERROR = ", e));
    }, []);
 
-   //console.log('CHARACTERS IN APP' ,characters);
+   console.log('CHARACTERS IN APP' ,characters);
 
    return (
       <div className="App">
