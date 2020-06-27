@@ -1,11 +1,18 @@
 import React from 'react';
 import styled  from 'styled-components'
 
+
 function Header() {
 
    return (
       <HeaderDiv>
+
         <HeaderText>STAR WARS</HeaderText>
+
+        <ButtonDiv>
+            <button id="next-search">NEXT</button>
+         </ButtonDiv>
+
       </HeaderDiv>
    );
 }
@@ -21,4 +28,8 @@ const HeaderText = styled.h1`
    font-size: 4rem;
    text-shadow: -1px 1px 3px  #FFe81F;
    margin:0
+`;
+
+const ButtonDiv = styled.div`
+   margin-top: 20px;
 `;
