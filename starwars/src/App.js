@@ -22,7 +22,9 @@ function App() {
    return (
       <div className="App">
          <Header />
-         <List starwarschars={characters}/>
+         <div>
+            <List starwarschars={characters}/>
+         </div>
       </div>
    );
 
