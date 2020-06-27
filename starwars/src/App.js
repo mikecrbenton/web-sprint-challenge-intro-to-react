@@ -12,11 +12,14 @@ function App() {
 
    function nextSet() {
 
-      setLink( link + 1 );
+      if( link < 10) {
+         setLink( link + 1 );
+      }
    }
    function previousSet() {
-
-      setLink( link - 1 );
+      if( link > 0){
+         setLink( link - 1 );
+      }
    }
 
 
@@ -36,9 +39,25 @@ function App() {
          document.getElementById('next-search').removeEventListener("click", nextSet);
       };
 
-
    }, [link]);
 
+   useEffect( () => {
+      axios.get(`https://swapi.dev/api/people/?page=${link}`)
+         .then( (response) => {  
+               //console.log('RESPONSE ', response.data)    
+               setCharacters(response.data.results)       
+         })
+         .catch( e => console.log("ERROR = ", e));
+
+       // ADD CLICK TO THE SUBMIT BUTTON - GET USER INPUT
+       document.getElementById('previous-search').addEventListener("click", previousSet);
+   
+       // REMOVE THE EVENT LISTENER
+       return () => {
+          document.getElementById('previous-search').removeEventListener("click", previousSet);
+       };
+
+   }, [link]);
 
 
    console.log('CHARACTERS IN APP' ,characters);
