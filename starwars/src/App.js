@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from './header.js';
+import List from './list';
 import './App.css';
 
 function App() {
@@ -15,11 +17,12 @@ function App() {
          .catch( e => console.log("ERROR = ", e));
    }, []);
 
-   console.log('CHARACTERS IN APP' ,characters);
+   //console.log('CHARACTERS IN APP' ,characters);
 
    return (
       <div>
-
+         <Header />
+         <List />
       </div>
    );
 
