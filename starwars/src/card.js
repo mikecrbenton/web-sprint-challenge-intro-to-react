@@ -8,9 +8,9 @@ function Card( {starcard}){
 
    return (
       <CharacterCard>
-         <div>{starcard ? <p>{starcard.name}</p> : <span></span>}</div>
-         <div>{starcard ? <p>{starcard.birth_year}</p> : <span></span>}</div>
-         {starcard ? <p>{starcard.gender}</p> : <span></span>}     
+         <Name>{starcard ? <p>{starcard.name}</p> : <span></span>}</Name>
+         <CharText>{starcard ? <p>{starcard.birth_year}</p> : <span></span>}</CharText>
+         <CharText>{starcard ? <p>{starcard.gender}</p> : <span></span>}</CharText>     
       </CharacterCard>
    ) 
 
@@ -19,5 +19,17 @@ function Card( {starcard}){
 export default Card;
 
 const CharacterCard = styled.div`
-   border: 1px solid gray;
+   box-shadow: 3px 3px 10px black;
+   border-radius: 5px;
+   margin: 5px;
+   background: rgba(255, 232, 31, 0.5);
+   padding: 5px;
+   width: 15%;
+`;
+const Name = styled.h3`
+   font-size: 1.3rem;
+   
+`;
+const CharText = styled.div`
+   
 `;
