@@ -7,7 +7,10 @@ function List ( { starwarschars}) {
 
    return (
       <div>
-         <Card />
+         { starwarschars ?
+            starwarschars.map( (person, index) => <Card key={index} starcard={person}/> ) :
+            <span>LOADING...</span>
+         }
       </div>
    )
 }
