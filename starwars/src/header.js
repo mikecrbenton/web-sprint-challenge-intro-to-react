@@ -4,13 +4,17 @@ import styled  from 'styled-components'
 function Header() {
 
    return (
-      <div>
+      <HeaderDiv>
         <HeaderText>STAR WARS</HeaderText>
-      </div>
+      </HeaderDiv>
    );
 }
 
 export default Header;
+
+const HeaderDiv = styled.div`
+   padding: 20px 0 10px;
+`;
 
 const HeaderText = styled.h1`
    font-family: "STARWARS";

@@ -58,8 +58,9 @@ const CharacterCard = styled.div`
    width: 18%;
 `;
 const Name = styled.h3`
-   font-size: 1.3rem;
-   
+   font-size: 1.5rem;
+   font-family: "STARWARS";
+   text-shadow: 1px 1px 2px #FFe81F;
 `;
 const CharText = styled.div`
    margin: .5em 0;
